@@ -1,0 +1,79 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1>Create</h1>
+        <form asp-action="create" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Name">Name</label>
+                <input type="text" class="form-control" asp-for="Name">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorId">Author</label>
+                <select class="form-control" asp-for="AuthorId" asp-items="new SelectList(ViewBag.Authors, nameof(Author.Id), nameof(Author.Name))">
+                </select>
+                <span class="text-danger" asp-validation-for="AuthorId"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GenreId">Genre</label>
+                <select class="form-control" asp-for="GenreId" asp-items="new SelectList(ViewBag.Genres, nameof(Genre.Id), nameof(Genre.Name))">
+                </select>
+                <span class="text-danger" asp-validation-for="GenreId"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitialPrice">Price</label>
+                <input type="text" class="form-control" asp-for="InitialPrice">
+                <span class="text-danger" asp-validation-for="InitialPrice"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiscountPercent">DiscountPercent</label>
+                <input type="text" class="form-control" asp-for="DiscountPercent">
+                <span class="text-danger" asp-validation-for="DiscountPercent"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Description</label>
+                <textarea asp-for="Description" class="form-control" rows="2"></textarea>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsNew">IsNew</label>
+                <input class="form-control" asp-for="IsNew">
+                <span class="text-danger" asp-validation-for="IsNew"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsFeatured">IsFeatured</label>
+                <input class="form-control" asp-for="IsFeatured">
+                <span class="text-danger" asp-validation-for="IsFeatured"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsAviable">IsAviable</label>
+                <input class="form-control" asp-for="IsAviable">
+                <span class="text-danger" asp-validation-for="IsAviable"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PosterImage">PosterImage</label>
+                <input class="form-control" asp-for="PosterImage">
+                <span class="text-danger" asp-validation-for="PosterImage"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoverPoster">HoverPoster</label>
+                <input class="form-control" asp-for="HoverPoster">
+                <span class="text-danger" asp-validation-for="HoverPoster"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookImages">BookImages</label>
+                <input class="form-control" asp-for="BookImages">
+                <span class="text-danger" asp-validation-for="BookImages"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @Html.Partial("_ValidationsScriptsPartial")
+}
